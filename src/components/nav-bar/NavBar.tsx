@@ -24,8 +24,8 @@ const NavBar = () => {
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Features', href: '#features' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Features', href: '/features' },
     {
       name: 'Pages',
       subItems: [
@@ -38,7 +38,7 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md fixed w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         <div className="flex items-center">
           <Link href="/">
