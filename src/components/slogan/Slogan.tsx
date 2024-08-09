@@ -1,7 +1,5 @@
 import React from 'react'
 import Hero from '../hero-card/HeroCard'
-import AboutCard from './AboutCard'
-import StatsCard from './StatsCard'
 
 const Slogan = () => {
   return (
@@ -15,10 +13,6 @@ const Slogan = () => {
         secondaryButtonLink="/"
         imageUrl="https://picsum.photos/500/500?random=$100"
       />
-      <div style={{ display: 'flex', width: '100%', gap: '2em', flexWrap: 'wrap', padding: '2em', justifyContent: 'center', alignItems: 'center' }}>
-        <AboutCard classes='border-blue-300 h-72 transition-all duration-500' />
-        <StatsCard classes='h-72' />
-      </div>
     </div>
   )
 }

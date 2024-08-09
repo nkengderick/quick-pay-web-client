@@ -10,6 +10,7 @@ interface HeroProps {
   secondaryButtonLink?: string;
   imageUrl: string;
   children?: ReactNode;
+  orientation?: "left"|"right";
 }
 
 const Hero = ({
@@ -21,7 +22,8 @@ const Hero = ({
   secondaryButtonLink,
   imageUrl,
   children,
-}: HeroProps) => {
+  orientation,
+}: HeroProps ) => {
   return (
     <div className="bg-light-gray flex flex-col items-center justify-around md:flex-row border-black">
       <div className="flex-1 flex flex-col items-center justify-center max-w-xl mb-8 md:mb-0">

@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from '../hero-card/HeroCard'
 
-const HowItWorks = () => {
+const Pricing = () => {
   return (
     <div className=''>
       <Hero
@@ -17,4 +17,4 @@ const HowItWorks = () => {
   )
 }
 
-export default HowItWorks
+export default Pricing
