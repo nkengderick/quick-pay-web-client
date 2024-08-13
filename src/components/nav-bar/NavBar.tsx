@@ -21,11 +21,6 @@ const NavBar = ({ setActiveSection }: any) => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
 
-  const handleClick = (section: any) => {
-    setActiveSection(section);
-    setIsOpen(false);
-  };
-
   const linkClasses = (path: string) =>
     pathname === path
       ? "text-primary font-semibold px-3 py-2 rounded-md text-base"
@@ -61,7 +56,6 @@ const NavBar = ({ setActiveSection }: any) => {
                       <Link
                         key={subIndex}
                         href={subItem.href}
-                        onClick={() => handleClick(subItem.name.toLowerCase())}
                         className="text-foreground block px-4 py-2 text-base hover:bg-secondary hover:text-background"
                       >
                         {subItem.name}
@@ -74,7 +68,6 @@ const NavBar = ({ setActiveSection }: any) => {
               <Link
                 key={index}
                 href={item.href}
-                onClick={() => handleClick(item.name.toLowerCase())}
                 className={linkClasses(item.href)}
               >
                 {item.name}
@@ -157,7 +150,6 @@ const NavBar = ({ setActiveSection }: any) => {
                       <Link
                         key={subIndex}
                         href={subItem.href}
-                        onClick={() => handleClick(subItem.name.toLowerCase())}
                         className="text-foreground block px-4 py-2 rounded-md text-base hover:bg-secondary hover:text-background"
                       >
                         {subItem.name}
@@ -170,7 +162,6 @@ const NavBar = ({ setActiveSection }: any) => {
               <Link
                 key={index}
                 href={item.href}
-                onClick={() => handleClick(item.name.toLowerCase())}
                 className="text-foreground font-medium px-3 py-2 rounded-md text-base block hover:bg-secondary hover:text-background"
               >
                 {item.name}

@@ -13,16 +13,16 @@ export const metaData: Metadata = {
 
 export const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Features', href: '#features' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Features', href: '/features' },
     {
         name: 'Pages',
         subItems: [
-            { name: 'Pricing', href: '#pricing' },
-            { name: 'Contact Us', href: '#contact' },
-            { name: 'Team', href: '#team' },
-            { name: 'Testimonials', href: '#testimonials' },
-            { name: 'FAQs', href: '#faqs' },
+            { name: 'Pricing', href: '/pricing' },
+            { name: 'Contact Us', href: '/contact' },
+            { name: 'Team', href: '/team' },
+            { name: 'Testimonials', href: '/testimonials' },
+            { name: 'FAQs', href: '/faqs' },
         ],
     }
 ];

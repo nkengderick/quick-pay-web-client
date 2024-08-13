@@ -17,7 +17,6 @@ import WhatWeAre from "@/components/what-we-are-card/WhatWeAre";
 import WhereWeHaveGone from "@/components/where-we-hane-gone/WhereWeHaveGone";
 import Team from "@/components/our-team/OurTeam";
 import { useState } from "react";
-import NavBar from "@/components/nav-bar/NavBar";
 import ContactUsForm from "@/components/contact-us-form/ContactUsForm";
 import ContactUSInfo from "@/components/contact-us-info/ContactUsInfo";
 import Location from "@/components/our-head-quarters/Location";
@@ -29,10 +28,6 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('home')
   return (
     <main>
-
-      <div className="z-50 absolute top-0">
-        <NavBar setActiveSection={setActiveSection} />
-      </div>
 
       <div className="pt-[150px]">
 
