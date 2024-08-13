@@ -10,20 +10,20 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
-      <div className="relative bg-none p-8 rounded-lg shadow-lg w-full max-w-4xl">
-        <button
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+      <button
+          className="absolute top-20 right-20 text-2xl font-bold bg-secondary text-background hover:bg-primary hover:text-foreground rounded-[25%] p-3"
           onClick={onClose}
-        >
-          ✕
-        </button>
-        <div className="relative bg-none w-full  text-xl bg-none border rounded-full ">
+      >
+        ✕
+      </button>
+      <div className="relative p-8 rounded-lg shadow-lg w-full max-w-4xl">
+        <div className="relative w-full text-xl border rounded-full">
           <input
             type="text"
             placeholder="Enter your text..."
-            className="w-full h-auto px-8 py-4 border-none rounded-full bg-none "
+            className="w-full h-auto px-8 py-4 rounded-full bg-transparent focus:outline-none focus:ring-0"
           />
-          <button className="absolute mt-4 w-8 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">
+          <button className="absolute right-4 top-1/2 transform -translate-y-1/2 px-4 py-2 border border-border text-foreground rounded-full hover:bg-background hover:text-foreground">
             Search
           </button>
         </div>

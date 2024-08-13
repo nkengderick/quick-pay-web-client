@@ -12,7 +12,7 @@ export const metaData: Metadata = {
 };
 
 export const navItems = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '/#home' },
     { name: 'About Us', href: '/about' },
     { name: 'Features', href: '/features' },
     {

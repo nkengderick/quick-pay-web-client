@@ -12,18 +12,18 @@
     --primary: #e5e555;
     --primary-foreground: #2659b1;
 
-    --muted: 0 1% 27%;
-    --muted-foreground: #f7f9fd;
+    --muted: #6b7280; /* Updated to a specific gray color */
+    --muted-foreground: #9ca3af; /* Lighter gray for foreground muted elements */
 
-    --accent: 148 94% 45%;
-    --accent-foreground: #f7f9fd;
+    --accent: #7c3aed; /* Purple for accent */
+    --accent-foreground: #d8b4fe; /* Light purple for foreground accent elements */
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: #dc2626; /* Red for destructive elements */
     --destructive-foreground: #f7f9fd;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: #e5e555;
+    --input: #f7f9fd; /* Light gray for inputs */
+    --ring: #e5e555;
 
     --radius: 0.5rem;
   }
@@ -35,13 +35,13 @@
     --primary: #e5e555;
     --primary-foreground: #2659b1;
 
-    --muted: #2659b1;
-    --muted-foreground: #f7f9fd;
+    --muted: #9ca3af; /* Updated to a lighter gray in dark mode */
+    --muted-foreground: #6b7280; /* Darker gray for foreground muted elements */
 
-    --accent: #2659b1;
-    --accent-foreground: #f7f9fd;
+    --accent: #d8b4fe; /* Light purple for dark mode */
+    --accent-foreground: #7c3aed; /* Purple for foreground accent elements in dark mode */
 
-    --destructive: #e5e555;
+    --destructive: #e5e555; /* Yellow for destructive elements in dark mode */
     --destructive-foreground: #2659b1;
 
     --border: #2659b1;

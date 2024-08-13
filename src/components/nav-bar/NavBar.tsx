@@ -7,7 +7,7 @@ import { navItems } from "@/data";
 import { FaSearch } from "react-icons/fa";
 import SearchOverlay from "../search-overlay/SearchOverlay";
 
-const NavBar = ({ setActiveSection }: any) => {
+const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search overlay
@@ -32,7 +32,7 @@ const NavBar = ({ setActiveSection }: any) => {
 
   return (
     <nav className="bg-background shadow-md fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[80px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[150px]">
         <div className="flex items-center">
           <a href="/">
             <span className="text-3xl font-bold text-primary bg-gradient-to-r from-background to-primary p-2 rounded-xl shadow-lg">
@@ -56,7 +56,7 @@ const NavBar = ({ setActiveSection }: any) => {
                       <Link
                         key={subIndex}
                         href={subItem.href}
-                        className="text-foreground block px-4 py-2 text-base hover:bg-secondary hover:text-background"
+                        className="block px-4 py-2 text-background hover:bg-background hover:text-foreground"
                       >
                         {subItem.name}
                       </Link>
@@ -145,12 +145,12 @@ const NavBar = ({ setActiveSection }: any) => {
                   <MdArrowDropDown className="ml-auto" />
                 </button>
                 {dropdownOpen === index && (
-                  <div className="pl-4 bg-card shadow-lg rounded-md">
+                  <div className=" bg-card shadow-lg rounded-md">
                     {item.subItems.map((subItem, subIndex) => (
                       <Link
                         key={subIndex}
                         href={subItem.href}
-                        className="text-foreground block px-4 py-2 rounded-md text-base hover:bg-secondary hover:text-background"
+                        className="text-background block px-4 py-2 text-base hover:bg-background hover:text-foreground"
                       >
                         {subItem.name}
                       </Link>

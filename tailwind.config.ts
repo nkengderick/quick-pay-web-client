@@ -18,29 +18,31 @@ const config: Config = {
     },
     extend: {
       colors: {
-        primary: '#e5e555',
-        bgColor: '#2659b1',
-        textColor: '#f7f9fd',
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        primary: '#e5e555',  // Bright Yellow
+        bgColor: '#2659b1',  // Deep Blue
+        textColor: '#f7f9fd', // Off-white/Light Gray
+        background: '#2659b1',  // Deep Blue (same as bgColor)
+        foreground: '#f7f9fd', // Off-white/Light Gray (same as textColor)
+        secondary: '#f7f9fd',  // Off-white/Light Gray (for secondary elements)
+        border: '#e5e555',  // Bright Yellow (for borders)
+        input: '#f7f9fd',  // Light Gray (for form inputs)
+        ring: '#e5e555',  // Bright Yellow (for focus rings)
+
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: '#6b7280',  // Grayish (for muted text/elements)
+          foreground: '#9ca3af',  // Lighter Gray (for foreground muted elements)
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          DEFAULT: '#7c3aed',  // Purple (for accent elements)
+          foreground: '#d8b4fe',  // Light Purple (for foreground accent elements)
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+          DEFAULT: '#ffffff',  // White (for popover backgrounds)
+          foreground: '#2659b1',  // Deep Blue (for popover text/foreground)
         },
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+          DEFAULT: '#f7f9fd',  // Off-white/Light Gray (for card backgrounds)
+          foreground: '#2659b1',  // Deep Blue (for card text/foreground)
         },
       },
       fontFamily: {

@@ -27,7 +27,7 @@ const Hero = ({
   const hasImage = Boolean(imageUrl);
 
   return (
-    <div className={`flex flex-col ${hasImage ? 'md:flex-row' : 'md:flex-col'} items-center justify-around border-black ${reverse ? "md:flex-row-reverse" : ""} bg-white dark:bg-gray-900 text-black dark:text-white`}>
+    <div className={`flex flex-col py-20 ${hasImage ? 'md:flex-row' : 'md:flex-col'} items-center justify-around border-black ${reverse ? "md:flex-row-reverse" : ""} bg-white dark:bg-gray-900 text-black dark:text-white`}>
       <div
         className={`flex-1 flex flex-col items-center justify-center max-w-xl mb-8 md:mb-0 ${hasImage ? 'md:w-1/2' : 'w-full'} font-dosis`}
       >
