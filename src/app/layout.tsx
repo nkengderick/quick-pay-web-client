@@ -1,23 +1,19 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import { metaData } from "@/data";
 import "./globals.css";
-import NavBar from "@/components/nav-bar/NavBar";
 
-export const metadata: Metadata = {
-  title: "Quick Pay",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, fugit illo! Eos, iure molestias. Perspiciatis eius consequatur eos excepturi necessitatibus facere quam animi molestias rerum, eum accusamus nulla, voluptatem provident!",
-};
+export const metadata: Metadata = metaData
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body>
-        <NavBar />
-        <div className="pt-10">{children}</div>
+        <div>{children}</div>
       </body>
     </html>
   );

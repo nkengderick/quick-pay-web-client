@@ -1,13 +1,17 @@
 'use client'
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdArrowDropDown } from "react-icons/md";
+import { navItems } from "@/data";
+import { FaSearch } from "react-icons/fa";
+import SearchOverlay from "../search-overlay/SearchOverlay";
 
-const NavBar = () => {
+const NavBar = ({ setActiveSection }: any) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(null); // Track which dropdown is open
-  const pathname = usePathname(); // Get the current path
+  const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search overlay
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -17,37 +21,29 @@ const NavBar = () => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
 
+  const handleClick = (section: any) => {
+    setActiveSection(section);
+    setIsOpen(false);
+  };
+
   const linkClasses = (path: string) =>
     pathname === path
-      ? "text-navy font-semibold px-3 py-2 rounded-md text-base"
-      : "text-navy hover:text-navy font-medium px-3 py-2 rounded-md text-base";
+      ? "text-primary font-semibold px-3 py-2 rounded-md text-base"
+      : "text-foreground hover:text-primary font-medium px-3 py-2 rounded-md text-base";
 
-  const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Features', href: '/features' },
-    {
-      name: 'Pages',
-      subItems: [
-        { name: 'Pricing', href: '#pricing' },
-        { name: 'Contact Us', href: '#contact' },
-        { name: 'Testimonials', href: '#testimonials' },
-        { name: 'FAQs', href: '#faqs' },
-      ],
-    }
-  ];
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
 
   return (
-    <nav className="bg-white shadow-md fixed w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+    <nav className="bg-background shadow-md fixed w-full z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[80px]">
         <div className="flex items-center">
-          <Link href="/">
-            <img
-              src="/logo.png" // Replace with your logo's path
-              alt="QuickPay"
-              className="h-8 w-auto"
-            />
-          </Link>
+          <a href="/">
+            <span className="text-3xl font-bold text-primary bg-gradient-to-r from-background to-primary p-2 rounded-xl shadow-lg">
+              Quick<span className="text-secondary">Pay</span>
+            </span>
+          </a>
         </div>
         <div className="hidden md:flex space-x-8 items-center">
           {navItems.map((item, index) => (
@@ -57,15 +53,16 @@ const NavBar = () => {
                   onClick={() => toggleDropdown(index)}
                   className={linkClasses(item.href || '')}
                 >
-                  {item.name} <MdArrowDropDown />
+                  {item.name} <MdArrowDropDown className="inline-block" />
                 </button>
                 {dropdownOpen === index && (
-                  <div className="absolute mt-2 w-48 bg-white shadow-lg">
+                  <div className="absolute mt-2 w-48 bg-card shadow-lg z-10 rounded-md">
                     {item.subItems.map((subItem, subIndex) => (
                       <Link
                         key={subIndex}
                         href={subItem.href}
-                        className={linkClasses(subItem.href)}
+                        onClick={() => handleClick(subItem.name.toLowerCase())}
+                        className="text-foreground block px-4 py-2 text-base hover:bg-secondary hover:text-background"
                       >
                         {subItem.name}
                       </Link>
@@ -77,27 +74,28 @@ const NavBar = () => {
               <Link
                 key={index}
                 href={item.href}
+                onClick={() => handleClick(item.name.toLowerCase())}
                 className={linkClasses(item.href)}
               >
                 {item.name}
               </Link>
             )
-          )
-          )}
+          ))}
         </div>
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center space-x-4">
+          <FaSearch className="text-primary cursor-pointer" onClick={toggleSearch} />
           <Link
             href="/login"
-            className="font-semibold px-4 py-2 rounded-full"
+            className="bg-secondary text-background font-semibold px-4 py-2 rounded-full hover:bg-primary hover:text-secondary"
           >
-            Register
+            Create Account
           </Link>
         </div>
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
             type="button"
-            className="text-navy focus:outline-none focus:ring-2 focus:ring-inset focus:ring-navy"
+            className="text-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
             aria-controls="mobile-menu"
             aria-expanded={isOpen}
           >
@@ -139,28 +137,28 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div
-        className={`${isOpen ? "block" : "hidden"} md:hidden`}
-        id="mobile-menu"
-      >
+      <SearchOverlay isOpen={isSearchOpen} onClose={toggleSearch} /> {/* Use the SearchOverlay component */}
+
+      <div className={`${isOpen ? "block" : "hidden"} md:hidden`} id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {navItems.map((item, index) => (
             item.subItems ? (
               <div key={index} className="relative">
                 <button
                   onClick={() => toggleDropdown(index)}
-                  className="text-navy font-medium px-3 py-2 flex rounded-md text-base text-left relative"
+                  className="text-primary font-medium px-3 py-2 flex rounded-md text-base text-left relative w-full"
                 >
                   <div>{item.name}</div>
-                 <div className="absolute right-0 top-8"><MdArrowDropDown /></div>
+                  <MdArrowDropDown className="ml-auto" />
                 </button>
                 {dropdownOpen === index && (
-                  <div className="absolute mt-2 w-full bg-white shadow-lg">
+                  <div className="pl-4 bg-card shadow-lg rounded-md">
                     {item.subItems.map((subItem, subIndex) => (
                       <Link
                         key={subIndex}
                         href={subItem.href}
-                        className="text-navy block px-4 py-2 rounded-md text-base"
+                        onClick={() => handleClick(subItem.name.toLowerCase())}
+                        className="text-foreground block px-4 py-2 rounded-md text-base hover:bg-secondary hover:text-background"
                       >
                         {subItem.name}
                       </Link>
@@ -172,7 +170,8 @@ const NavBar = () => {
               <Link
                 key={index}
                 href={item.href}
-                className="text-navy font-medium px-3 py-2 rounded-md text-base block"
+                onClick={() => handleClick(item.name.toLowerCase())}
+                className="text-foreground font-medium px-3 py-2 rounded-md text-base block hover:bg-secondary hover:text-background"
               >
                 {item.name}
               </Link>
@@ -180,9 +179,9 @@ const NavBar = () => {
           ))}
           <Link
             href="/login"
-            className="bg-navy text-white block px-4 py-2 rounded-full text-center"
+            className="bg-secondary text-background block px-4 py-2 rounded-full text-center hover:bg-primary hover:text-secondary"
           >
-            Sign In
+            Create Account
           </Link>
         </div>
       </div>

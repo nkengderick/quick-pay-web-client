@@ -1,6 +1,10 @@
 import Hero from "@/components/hero-card/HeroCard";
 
-const WhatWeAre = () => {
+interface WhoWeAreProps {
+  reverse?: boolean;
+}
+
+const WhatWeAre = ({ reverse = false }: WhoWeAreProps) => {
   return (
     <Hero
       header="Who We Are"
@@ -10,6 +14,7 @@ const WhatWeAre = () => {
       primaryButtonLink="/our-mission"
       secondaryButtonLink="/join-us"
       imageUrl="https://picsum.photos/500/500?random=$100"
+      reverse={reverse}
     />
   );
 };

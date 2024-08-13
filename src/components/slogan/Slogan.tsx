@@ -1,20 +1,22 @@
-import React from 'react'
-import Hero from '../hero-card/HeroCard'
+import React from 'react';
+import Hero from '../hero-card/HeroCard';
+import { sloganData } from '@/data'; // Adjust the import path as necessary
 
 const Slogan = () => {
   return (
     <div className=''>
       <Hero
-        header="LOREM LOREM IPSUM DOLORS"
-        description="We are a dedicated team of payment processing experts committed to providing the best solutions for your business. Our mission is to simplify payments and ensure your transactions are secure and efficient."
-        primaryButtonText="Click Here"
-        secondaryButtonText="Click Here"
-        primaryButtonLink="/"
-        secondaryButtonLink="/"
-        imageUrl="https://picsum.photos/500/500?random=$100"
+        header={sloganData.header}
+        description={sloganData.description}
+        primaryButtonText={sloganData.primaryButtonText}
+        secondaryButtonText={sloganData.secondaryButtonText}
+        primaryButtonLink={sloganData.primaryButtonLink}
+        secondaryButtonLink={sloganData.secondaryButtonLink}
+        imageUrl={sloganData.imageUrl}
+        reverse={sloganData.reverse}
       />
     </div>
-  )
+  );
 }
 
-export default Slogan
+export default Slogan;

@@ -2,17 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --font-dosis: 'DOSIS', sans-serif;
+
+    --background: #2659b1;
+    --foreground: #f7f9fd;
+
+    --primary: #e5e555;
+    --primary-foreground: #2659b1;
+
+    --muted: 0 1% 27%;
+    --muted-foreground: #f7f9fd;
+
+    --accent: 148 94% 45%;
+    --accent-foreground: #f7f9fd;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: #f7f9fd;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #f7f9fd;
+    --foreground: #2659b1;
+
+    --primary: #e5e555;
+    --primary-foreground: #2659b1;
+
+    --muted: #2659b1;
+    --muted-foreground: #f7f9fd;
+
+    --accent: #2659b1;
+    --accent-foreground: #f7f9fd;
+
+    --destructive: #e5e555;
+    --destructive-foreground: #2659b1;
+
+    --border: #2659b1;
+    --input: #2659b1;
+    --ring: #f7f9fd;
   }
 }
 
+@layer components {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-dosis);
+  }
+}
